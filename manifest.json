@@ -26,6 +26,18 @@
       "js": ["content.js"]
     }
   ],
+  
+  "commands": {
+  "save-main-video": {
+    "suggested_key": {
+      "default": "Ctrl+Y",
+      "mac": "MacCtrl+Y"
+    },
+    "description": "Save Main Video"
+  }
+},
+
+
   "icons": {
     "16": "images/pop16.png",
     "48": "images/pop48.png",

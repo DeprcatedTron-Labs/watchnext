@@ -15,6 +15,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
 });
 
+chrome.commands.onCommand.addListener(function(command) {
+  if (command === "save-main-video") {
+    // Handle the keyboard shortcut here, e.g., trigger your save video logic.
+    // For example, you can simulate a click on the save button.
+    document.getElementById("saveMainVideoButton").click();
+  }
+});
+
 function saveLinks(links) {
     savedLinks = savedLinks.concat(links);
     chrome.storage.local.set({ videoLinks: savedLinks });
