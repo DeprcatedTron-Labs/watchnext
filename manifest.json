@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "Video Link Saver",
+  "version": "1.0",
+  "description": "Save and organize video links for later viewing.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "https://www.googleapis.com/"  
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/pop16.png",
+      "48": "images/pop48.png",
+      "128": "images/pop128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*","*://*.vimeo.com/*","*://*.netflix.com/*","*://*.crunchyroll.com/*","*://*.primevideo.com/*","*://*.spotify.com/*","*://*.soundcloud.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "images/pop16.png",
+    "48": "images/pop48.png",
+    "128": "images/pop128.png"
+  }
+}
+
