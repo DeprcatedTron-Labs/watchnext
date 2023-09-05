@@ -39,16 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 videoList.appendChild(listItem);
 
                 deleteButton.addEventListener("click", function () {
-                    // Get the link's unique identifier (e.g., link.url)
-                    const linkIdentifier = link.url; // Adjust this based on your data structure
-
-                    // Remove the link from the list
+    // Save the deleted item data in local storage
+                    chrome.storage.local.set({ 'latestDeletedItem': JSON.stringify(link) }, function () {
+        // Remove the link from the list
                     listItem.remove();
-
-                    // Send a message to the background script to remove the link from memory
-                    chrome.runtime.sendMessage({ action: "removeLink", linkIdentifier: linkIdentifier });
-                    saveMainVideoButton.disabled = false;
-                    saveMainVideoButton.textContent = "Save Video";
+                    chrome.storage.local.remove('latestDeletedItem');
+                     });
                 });
             });
         } else {
@@ -104,9 +100,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 action: "saveLinks",
                 links: [{ url: activeTab.url, title: activeTab.title }],
             });
-            savedUrl.textContent = "Video Saved!";
-            saveMainVideoButton.disabled = true;
-            saveMainVideoButton.textContent = "Video Saved";
+            savedUrl.textContent = "Saved URL: " + activeTab.url;
         });
     });
+
+    undoDeleteButton.addEventListener("click", function (){
+         chrome.storage.local.get(['latestDeletedItem'], function (result) {
+        const latestDeletedItemData = result.latestDeletedItem;
+        if (latestDeletedItemData) {
+            // Parse the JSON data to get the deleted item
+            const deletedItem = JSON.parse(latestDeletedItemData);
+
+            // Create a list item for the deleted item
+            createVideoListItem(deletedItem);
+
+            // Remove the item from storage (optional: if you want to clear the undo data)
+            chrome.storage.local.remove('latestDeletedItem');
+        }
+    });
+    })
+
+    // Style the link to have no underline and green text color
+    const style = document.createElement('style');
+    style.textContent = 'a { text-decoration: none; color: green; }';
+    document.head.appendChild(style);
 });

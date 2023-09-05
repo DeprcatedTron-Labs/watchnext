@@ -1,32 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="popup.css">
     <title>Video Link Saver</title>
-    <style>
-        body {
-            width: 300px;
-            padding: 10px;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 5px;
-        }
-        .settings-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
-    <h2>Saved Video Links</h2>
-    <ul id="videoList"></ul>
-    <button id="saveMainVideoButton">Save Main Video Link</button>
-    <div id="savedUrl"></div>
+    <ul id="videoList" class="sortable-list">
+        <!-- Saved video links will be dynamically added here -->
+    </ul>
+    <button id="saveMainVideoButton" class="save-button">Save Video</button>
+
+    <p id="savedUrl" class="saved"></p>
 
     <script src="popup.js"></script>
 </body>

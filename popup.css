@@ -1,0 +1,82 @@
+body {
+            width: 350px;
+            padding: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+        /* Styles for video links */
+
+.video-link {
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Vertically center items in the container */
+    margin-bottom: 10px; /* Add margin between video links */
+}
+
+.video-link button {
+    width: 30px; /* Set a fixed width for the delete button */
+    margin-right: 10px; /* Add margin between the delete button and the link */
+}
+
+ @font-face {
+        font-family: newFont;
+        src: url(Quicksand-VariableFont_wght.ttf);
+}
+.saved {
+    margin-bottom: 20px;
+}
+.delete-button {
+   
+    background-color: transparent;
+    color: red;
+    border-color: transparent;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: newFont;
+}
+
+.delete-button:hover {
+    background-color: #f0f0f0;
+}
+
+.save-button {
+    padding: 6px;
+    border-radius: 14px;
+    background-color: rgb(71, 71, 222);
+    font-family: newFont;
+    font-weight: 700;
+    border-color: transparent;
+    color: white;
+    bottom: 10px;
+    position:absolute;
+    margin-top: 70px;
+    right: 10px;
+}
+
+.save-button:enabled:hover {
+    background-color: blue;
+}
+
+.video-link a {
+    padding: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: newFont;
+    color: black;
+    white-space: normal; /* Allow text to wrap under itself */
+    flex-grow: 1; /* Allow the link to grow and wrap under itself */
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.video-link a:hover {
+    background-color: #f0f0f0; /* Light grey background color */
+}
+
+
+

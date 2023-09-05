@@ -22,7 +22,15 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*","*://*.vimeo.com/*","*://*.netflix.com/*","*://*.crunchyroll.com/*","*://*.primevideo.com/*","*://*.spotify.com/*","*://*.soundcloud.com/*"],
+      "matches": [
+    "*://*.youtube.com/*",
+    "*://*.vimeo.com/*",
+    "*://*.netflix.com/*",
+    "*://*.crunchyroll.com/*",
+    "*://*.primevideo.com/*",
+    "*://*.spotify.com/*",
+    "*://*.soundcloud.com/*"
+    ],
       "js": ["content.js"]
     }
   ],
@@ -30,8 +38,8 @@
   "commands": {
   "save-main-video": {
     "suggested_key": {
-      "default": "Ctrl+Y",
-      "mac": "MacCtrl+Y"
+      "default": "Ctrl+A",
+      "mac": "MacCtrl+A"
     },
     "description": "Save Main Video"
   }
